@@ -7,13 +7,12 @@ License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/librsync/%{name}-%{version}.tar.gz
 # Source0-md5:	24cdb6b78f45e0e83766903fd4f6bc84
+Patch0:		%{name}-link.patch
 URL:		http://librsync.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	bzip2-devel
 BuildRequires:	libtool
 BuildRequires:	popt-devel
-BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -45,9 +44,6 @@ Summary:	Headers for librsync
 Summary(pl):	Pliki nag³ówkowe librsync
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	bzip2-devel
-Requires:	popt-devel
-Requires:	zlib-devel
 
 %description devel
 This package contains header files necessary for developing programs
@@ -71,17 +67,18 @@ Statyczna biblioteka librsync.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--enable-shared
 
-%{__make} \
-	CFLAGS="%{rpmcflags}"
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
