@@ -1,8 +1,8 @@
 Summary:	Rsync libraries
 Summary(pl):	Biblioteki rsync
 Name:		librsync
-Version:	0.9.5
-Release:	2
+Version:	0.9.5.1
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp1.sourceforge.net/rproxy/%{name}-%{version}.tar.gz
@@ -86,8 +86,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	 DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf AUTHORS NEWS README THANKS TODO
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -96,7 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS NEWS README THANKS TODO
 %attr(755,root,root) %{_bindir}/rdiff
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_mandir}/man1/rdiff.1*
