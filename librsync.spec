@@ -1,14 +1,13 @@
 Summary:	Rsync libraries
 Summary(pl):	Biblioteki rsync
 Name:		librsync
-Version:	0.9.5.1
-Release:	2
+Version:	0.9.6
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/rproxy/%{name}-%{version}.tar.gz
-# Source0-md5:	d65dcd7dce50ba71364a1c0b15ce21bd
-URL:		http://rproxy.sorceforge.net/
-Patch0:		%{name}-am.patch
+Source0:	http://dl.sourceforge.net/librsync/%{name}-%{version}.tar.gz
+# Source0-md5:	b2e7fb16f1e8f66f8397928dcc0436c8
+URL:		http://librsync.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -66,7 +65,6 @@ Statyczna biblioteka librsync.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 rm -f missing
@@ -84,6 +82,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	 DESTDIR=$RPM_BUILD_ROOT
+
+install -D rdiff $RPM_BUILD_ROOT%{_bindir}/rdiff
 
 %clean
 rm -rf $RPM_BUILD_ROOT
