@@ -10,7 +10,7 @@ URL:		http://www.sf.net/projects/rproxy/
 Patch0:		%{name}-am.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext
+BuildRequires:	gettext-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -72,7 +72,7 @@ Statyczna biblioteka librsync.
 rm -f missing
 %{__libtoolize}
 %{__gettextize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
