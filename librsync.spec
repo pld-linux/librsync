@@ -1,16 +1,16 @@
 Summary:	Rsync libraries
 Summary(pl):	Biblioteki rsync
 Name:		librsync
-Version:	0.9.5.1
-Release:	2
+Version:	0.9.6
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp1.sourceforge.net/rproxy/%{name}-%{version}.tar.gz
-URL:		http://www.sf.net/projects/rproxy/
-Patch0:		%{name}-am.patch
+Source0:	http://dl.sourceforge.net/librsync/%{name}-%{version}.tar.gz
+# Source0-md5:	b2e7fb16f1e8f66f8397928dcc0436c8
+Patch0:		%{name}-ac.patch
+URL:		http://librsync.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -71,8 +71,7 @@ Statyczna biblioteka librsync.
 %build
 rm -f missing
 %{__libtoolize}
-%{__gettextize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
@@ -85,6 +84,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	 DESTDIR=$RPM_BUILD_ROOT
+
+install -D rdiff $RPM_BUILD_ROOT%{_bindir}/rdiff
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -102,7 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
-%attr(755,root,root) %{_libdir}/lib*.la
+%{_libdir}/lib*.la
 %{_includedir}/*
 %{_mandir}/man3/*
 
