@@ -1,11 +1,12 @@
 Summary:	Rsync libraries
+Summary(pl):	Biblioteki rsync
 Name:		librsync
 Version:	0.9.5
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp1.sourceforge.net/rproxy/%{name}-%{version}.tar.gz
-URL:		http://www.sf.net/projects/rproxy
+URL:		http://www.sf.net/projects/rproxy/
 Patch0:		%{name}-am.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -25,25 +26,31 @@ The current version of this package does not implement the rsync
 network protocol and uses a delta format slightly more efficient than
 and incompatible with rsync 2.4.6.
 
+%description -l pl
+librsync jest implementacj± algorytmu rsync, pozwalaj±cego na zdalne
+porównywanie plików binarnych. librsync liczy ró¿nice sum kontrolnych
+plików, wiêc nie wymaga obecno¶ci obu plików do sprawdzenia ró¿nic.
+
+Ta biblioteka by³a wcze¶niej znana jako libhsync, do wersji 0.9.0
+w³±cznie.
+
+Ta wersja nie ma implementacji sieciowego protoko³u rsync i u¿ywa
+formatu delt nieco wydajniejszego i niekompatybilnego z rsyncem w
+wersji 2.4.6.
+
 %package devel
-Summary:	Headers and development libraries for librsync
+Summary:	Headers for librsync
+Summary(pl):	Pliki nag³ówkowe librsync
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
 
 %description devel
-librsync implements the "rsync" algorithm, which allows remote
-differencing of binary files. librsync computes a delta relative to a
-file's checksum, so the two files need not both be present to generate
-a delta.
-
-This library was previously known as libhsync up to version 0.9.0.
-
-The current version of this package does not implement the rsync
-network protocol and uses a delta format slightly more efficient than
-and incompatible with rsync 2.4.6.
-
 This package contains header files necessary for developing programs
 based on librsync.
+
+%description devel -l pl
+Ten pakiet zawiera pliki nag³ówkowe potrzebne do budowania programów
+u¿ywajacych librsync.
 
 %package static
 Summary:	Static librsync library
