@@ -1,0 +1,15 @@
+--- librsync-0.9.5/Makefile.am.org	Fri Sep 14 03:35:04 2001
++++ librsync-0.9.5/Makefile.am	Mon Mar  4 00:41:30 2002
+@@ -17,12 +17,6 @@
+ # License along with this program; if not, write to the Free Software
+ # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ 
+-
+-			      # Thus spake the master programmer:
+-			      # 
+-			      # ``When the program is being tested, it
+-			      # is too late to make design changes.''
+-
+ SUBDIRS = popt
+ 
+ lib_LTLIBRARIES = librsync.la
