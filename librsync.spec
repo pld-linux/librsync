@@ -2,7 +2,7 @@ Summary:	Rsync libraries
 Summary(pl):	Biblioteki rsync
 Name:		librsync
 Version:	0.9.7
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/librsync/%{name}-%{version}.tar.gz
