@@ -10,7 +10,10 @@ Source0:	http://dl.sourceforge.net/librsync/%{name}-%{version}.tar.gz
 URL:		http://librsync.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	bzip2-devel
 BuildRequires:	libtool
+BuildRequires:	popt-devel
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -41,7 +44,10 @@ wersji 2.4.6.
 Summary:	Headers for librsync
 Summary(pl):	Pliki nag³ówkowe librsync
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
+Requires:	bzip2-devel
+Requires:	popt-devel
+Requires:	zlib-devel
 
 %description devel
 This package contains header files necessary for developing programs
@@ -55,7 +61,7 @@ u¿ywaj±cych librsync.
 Summary:	Static librsync library
 Summary(pl):	Statyczna biblioteka librsync
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static librsync library.
@@ -67,7 +73,6 @@ Statyczna biblioteka librsync.
 %setup -q
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -75,7 +80,8 @@ rm -f missing
 %configure \
 	--enable-shared
 
-%{__make} CFLAGS="%{rpmcflags}"
+%{__make} \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
