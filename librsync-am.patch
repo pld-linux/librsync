@@ -13,3 +13,15 @@
  SUBDIRS = popt
  
  lib_LTLIBRARIES = librsync.la
+diff -uNr librsync-0.9.5.1/configure.in librsync-0.9.5.1.orig/configure.in
+--- librsync-0.9.5.1/configure.in	Sun Jul 21 00:31:41 2002
++++ librsync-0.9.5.1.orig/configure.in	Sat Jun 29 01:46:13 2002
+@@ -157,7 +157,7 @@
+ AC_SUBST(CC_SHOBJ_FLAG)
+ AC_SUBST(CCMALLOC_LIB)
+ AC_SUBST(net_libs)
++AC_LIBOBJ
+-AC_SUBST(LIBOBJS)
+ AC_SUBST(LIBTOOL_DEPS)
+ AC_SUBST(BUILD_POPT)
+ 
