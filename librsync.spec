@@ -49,7 +49,7 @@ based on librsync.
 
 %description devel -l pl
 Ten pakiet zawiera pliki nag³ówkowe potrzebne do budowania programów
-u¿ywajacych librsync.
+u¿ywaj±cych librsync.
 
 %package static
 Summary:	Static librsync library
