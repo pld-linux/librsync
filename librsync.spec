@@ -1,12 +1,12 @@
 Summary:	Rsync libraries
 Summary(pl):	Biblioteki rsync
 Name:		librsync
-Version:	0.9.6
-Release:	2
+Version:	0.9.7
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/librsync/%{name}-%{version}.tar.gz
-# Source0-md5:	b2e7fb16f1e8f66f8397928dcc0436c8
+# Source0-md5:	24cdb6b78f45e0e83766903fd4f6bc84
 URL:		http://librsync.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
