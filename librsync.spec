@@ -6,6 +6,7 @@ Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp1.sourceforge.net/rproxy/%{name}-%{version}.tar.gz
+# Source0-md5:	d65dcd7dce50ba71364a1c0b15ce21bd
 URL:		http://www.sf.net/projects/rproxy/
 Patch0:		%{name}-am.patch
 BuildRequires:	autoconf
