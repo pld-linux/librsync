@@ -71,7 +71,7 @@ Statyczna biblioteka librsync.
 %build
 rm -f missing
 %{__libtoolize}
-gettextize --copy --force
+%{__gettextize}
 aclocal
 %{__autoconf}
 %{__automake}
