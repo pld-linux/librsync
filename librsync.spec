@@ -2,7 +2,7 @@ Summary:	Rsync libraries
 Summary(pl):	Biblioteki rsync
 Name:		librsync
 Version:	0.9.7
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/librsync/%{name}-%{version}.tar.gz
@@ -85,8 +85,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	 DESTDIR=$RPM_BUILD_ROOT
-
-install -D rdiff $RPM_BUILD_ROOT%{_bindir}/rdiff
 
 %clean
 rm -rf $RPM_BUILD_ROOT
