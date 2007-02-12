@@ -1,5 +1,5 @@
 Summary:	Rsync libraries
-Summary(pl):	Biblioteki rsync
+Summary(pl.UTF-8):   Biblioteki rsync
 Name:		librsync
 Version:	0.9.7
 Release:	3
@@ -27,21 +27,21 @@ The current version of this package does not implement the rsync
 network protocol and uses a delta format slightly more efficient than
 and incompatible with rsync 2.4.6.
 
-%description -l pl
-librsync jest implementacj± algorytmu rsync, pozwalaj±cego na zdalne
-porównywanie plików binarnych. librsync liczy ró¿nice sum kontrolnych
-plików, wiêc nie wymaga obecno¶ci obu plików do sprawdzenia ró¿nic.
+%description -l pl.UTF-8
+librsync jest implementacjÄ… algorytmu rsync, pozwalajÄ…cego na zdalne
+porÃ³wnywanie plikÃ³w binarnych. librsync liczy rÃ³Å¼nice sum kontrolnych
+plikÃ³w, wiÄ™c nie wymaga obecnoÅ›ci obu plikÃ³w do sprawdzenia rÃ³Å¼nic.
 
-Ta biblioteka by³a wcze¶niej znana jako libhsync, do wersji 0.9.0
-w³±cznie.
+Ta biblioteka byÅ‚a wczeÅ›niej znana jako libhsync, do wersji 0.9.0
+wÅ‚Ä…cznie.
 
-Ta wersja nie ma implementacji sieciowego protoko³u rsync i u¿ywa
+Ta wersja nie ma implementacji sieciowego protokoÅ‚u rsync i uÅ¼ywa
 formatu delt nieco wydajniejszego i niekompatybilnego z rsyncem w
 wersji 2.4.6.
 
 %package devel
 Summary:	Headers for librsync
-Summary(pl):	Pliki nag³ówkowe librsync
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe librsync
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -49,20 +49,20 @@ Requires:	%{name} = %{version}-%{release}
 This package contains header files necessary for developing programs
 based on librsync.
 
-%description devel -l pl
-Ten pakiet zawiera pliki nag³ówkowe potrzebne do budowania programów
-u¿ywaj±cych librsync.
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nagÅ‚Ã³wkowe potrzebne do budowania programÃ³w
+uÅ¼ywajÄ…cych librsync.
 
 %package static
 Summary:	Static librsync library
-Summary(pl):	Statyczna biblioteka librsync
+Summary(pl.UTF-8):   Statyczna biblioteka librsync
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static librsync library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka librsync.
 
 %prep
