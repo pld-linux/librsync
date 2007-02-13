@@ -1,5 +1,5 @@
 Summary:	Rsync libraries
-Summary(pl.UTF-8):   Biblioteki rsync
+Summary(pl.UTF-8):	Biblioteki rsync
 Name:		librsync
 Version:	0.9.7
 Release:	3
@@ -41,7 +41,7 @@ wersji 2.4.6.
 
 %package devel
 Summary:	Headers for librsync
-Summary(pl.UTF-8):   Pliki nagłówkowe librsync
+Summary(pl.UTF-8):	Pliki nagłówkowe librsync
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -55,7 +55,7 @@ używających librsync.
 
 %package static
 Summary:	Static librsync library
-Summary(pl.UTF-8):   Statyczna biblioteka librsync
+Summary(pl.UTF-8):	Statyczna biblioteka librsync
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
