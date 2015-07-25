@@ -1,0 +1,11 @@
+--- librsync-0.9.7/buf.c~	2004-02-08 00:17:57.000000000 +0100
++++ librsync-0.9.7/buf.c	2015-07-25 11:19:24.237688098 +0200
+@@ -213,7 +213,7 @@
+ 
+     got = fread(*buf, 1, *len, f);
+     if (got == -1) {
+-        rs_error(strerror(errno));
++        rs_error("%s", strerror(errno));
+         return RS_IO_ERROR;
+     } else if (got == 0) {
+         rs_error("unexpected eof on fd%d", fileno(f));

@@ -2,13 +2,14 @@ Summary:	Rsync libraries
 Summary(pl.UTF-8):	Biblioteki rsync
 Name:		librsync
 Version:	0.9.7
-Release:	5
+Release:	6
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/librsync/%{name}-%{version}.tar.gz
 # Source0-md5:	24cdb6b78f45e0e83766903fd4f6bc84
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-4Gigbug.patch
+Patch2:		format-security.patch
 URL:		http://librsync.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -70,6 +71,7 @@ Statyczna biblioteka librsync.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
