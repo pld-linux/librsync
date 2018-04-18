@@ -1,19 +1,14 @@
 Summary:	Rsync libraries
 Summary(pl.UTF-8):	Biblioteki rsync
 Name:		librsync
-Version:	0.9.7
-Release:	6
+Version:	2.0.2
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/librsync/%{name}-%{version}.tar.gz
-# Source0-md5:	24cdb6b78f45e0e83766903fd4f6bc84
-Patch0:		%{name}-link.patch
-Patch1:		%{name}-4Gigbug.patch
-Patch2:		format-security.patch
+Source0:	https://github.com/librsync/librsync/archive/v%{version}.tar.gz
+# Source0-md5:	d35403599653231f44ecbe21a65a2142
 URL:		http://librsync.sourceforge.net/
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	libtool
+BuildRequires:	cmake
 BuildRequires:	popt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -55,39 +50,21 @@ based on librsync.
 Ten pakiet zawiera pliki nagłówkowe potrzebne do budowania programów
 używających librsync.
 
-%package static
-Summary:	Static librsync library
-Summary(pl.UTF-8):	Statyczna biblioteka librsync
-Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
-
-%description static
-Static librsync library.
-
-%description static -l pl.UTF-8
-Statyczna biblioteka librsync.
-
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure \
-	--enable-shared
+install -d build
+cd build
+%{cmake} \
+	..
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} -C build install \
 	 DESTDIR=$RPM_BUILD_ROOT
 
 %clean
@@ -98,19 +75,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README THANKS TODO
+%doc AUTHORS CONTRIBUTING.md NEWS.md README.md THANKS TODO.md
 %attr(755,root,root) %{_bindir}/rdiff
 %attr(755,root,root) %{_libdir}/librsync.so.*.*
-%attr(755,root,root) %ghost %{_libdir}/librsync.so.1
+%attr(755,root,root) %ghost %{_libdir}/librsync.so.2
 %{_mandir}/man1/rdiff.1*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/*
-%{_mandir}/man3/*
-
-%files static
-%defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_includedir}/librsync.h
+%{_mandir}/man3/librsync.3*
