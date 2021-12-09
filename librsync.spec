@@ -2,7 +2,7 @@ Summary:	Rsync libraries
 Summary(pl.UTF-8):	Biblioteki rsync
 Name:		librsync
 Version:	2.3.2
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	https://github.com/librsync/librsync/archive/v%{version}.tar.gz
@@ -85,4 +85,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/librsync.h
+%{_includedir}/librsync_export.h
 %{_mandir}/man3/librsync.3*
