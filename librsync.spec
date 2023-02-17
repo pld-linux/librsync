@@ -10,6 +10,7 @@ Source0:	https://github.com/librsync/librsync/archive/v%{version}.tar.gz
 URL:		http://librsync.sourceforge.net/
 BuildRequires:	cmake >= 3.6
 BuildRequires:	popt-devel
+BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
