@@ -1,12 +1,12 @@
 Summary:	Rsync libraries
 Summary(pl.UTF-8):	Biblioteki rsync
 Name:		librsync
-Version:	2.3.3
+Version:	2.3.4
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	https://github.com/librsync/librsync/archive/v%{version}.tar.gz
-# Source0-md5:	a90deff1cfa6b7f259b203322d7d5311
+# Source0-md5:	71d227be94f6fbfc7b6d0fce3ce81861
 URL:		http://librsync.sourceforge.net/
 BuildRequires:	cmake >= 3.6
 BuildRequires:	popt-devel
