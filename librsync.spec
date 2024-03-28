@@ -1,13 +1,20 @@
-Summary:	Rsync libraries
-Summary(pl.UTF-8):	Biblioteki rsync
+#
+# Conditional build:
+%bcond_without	static_libs	# static library
+
+Summary:	Rsync library
+Summary(pl.UTF-8):	Biblioteka rsync
 Name:		librsync
 Version:	2.3.4
-Release:	1
-License:	LGPL
+Release:	2
+License:	LGPL v2.1+
 Group:		Libraries
+#Source0Download: https://github.com/librsync/librsync/releases
+# TODO use:
+#Source0:	https://github.com/librsync/librsync/archive/v%{version}/%{name}-%{version}.tar.gz
 Source0:	https://github.com/librsync/librsync/archive/v%{version}.tar.gz
 # Source0-md5:	71d227be94f6fbfc7b6d0fce3ce81861
-URL:		http://librsync.sourceforge.net/
+URL:		https://librsync.sourceforge.net/
 BuildRequires:	cmake >= 3.6
 BuildRequires:	popt-devel
 BuildRequires:	rpmbuild(macros) >= 1.605
@@ -51,19 +58,46 @@ based on librsync.
 Ten pakiet zawiera pliki nagłówkowe potrzebne do budowania programów
 używających librsync.
 
+%package static
+Summary:	Static librsync library
+Summary(pl.UTF-8):	Statyczna biblioteka librsync
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+Static librsync library.
+
+%description static -l pl.UTF-8
+Statyczna biblioteka librsync.
+
 %prep
 %setup -q
 
 %build
+%if %{with static_libs}
+install -d build-static
+cd build-static
+%cmake .. \
+	-DBUILD_RDIFF=OFF \
+	-DBUILD_SHARED_LIBS=OFF
+
+%{__make}
+cd ..
+%endif
+
 install -d build
 cd build
-%{cmake} \
-	..
+%cmake ..
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
+%if %{with static_libs}
+%{__make} -C build-static install \
+	 DESTDIR=$RPM_BUILD_ROOT
+%endif
 
 %{__make} -C build install \
 	 DESTDIR=$RPM_BUILD_ROOT
@@ -84,7 +118,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/librsync.so
 %{_includedir}/librsync.h
 %{_includedir}/librsync_export.h
 %{_mandir}/man3/librsync.3*
+
+%if %{with static_libs}
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/librsync.a
+%endif
